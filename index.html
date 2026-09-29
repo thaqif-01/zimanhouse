@@ -1,16 +1,168 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zimanhome</title>
+  <title>Ziman Home — Luxury Homestay</title>
+  <meta name="description" content="Ziman Home — a private, luxurious homestay for your next staycation.">
+  <link rel="icon" href="assets/logo.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="placeholder">
-    <h1>Zimanhome</h1>
-    <p>Coming soon.</p>
-  </main>
+
+  <!-- ===== Navigation ===== -->
+  <header class="nav" id="nav">
+    <a href="#home" class="nav__brand">
+      <img src="assets/logo.webp" alt="Ziman Home logo" class="nav__logo">
+      <span>Ziman Home</span>
+    </a>
+    <nav class="nav__links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#amenities">Amenities</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#availability" class="btn btn--gold nav__cta">Book Now</a>
+    <button class="nav__toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="home">
+    <!-- PHOTO: replace with a hero photo, e.g. style="background-image:url(assets/hero.jpg)" -->
+    <div class="hero__bg photo-slot" data-label="Hero photo"></div>
+    <div class="hero__content">
+      <img src="assets/logo.webp" alt="" class="hero__emblem">
+      <p class="eyebrow">Ziman Home welcomes you</p>
+      <h1>Where every stay<br><em>feels like home</em></h1>
+      <a href="#availability" class="btn btn--gold">Book Now</a>
+    </div>
+    <a href="#experience" class="hero__scroll" aria-label="Scroll down"></a>
+  </section>
+
+  <!-- ===== Experience ===== -->
+  <section class="section experience" id="experience">
+    <div class="container experience__grid">
+      <div class="experience__photo photo-slot reveal" data-label="Interior photo"></div>
+      <div class="experience__text reveal">
+        <p class="eyebrow">The Ziman Home Experience</p>
+        <h2>Quiet luxury,<br>made for unwinding</h2>
+        <div class="divider"></div>
+        <p>Slow mornings, warm lighting and thoughtful comfort in every corner. Ziman Home is a private retreat for families and couples who want a stay that feels special — elegant, calm and effortlessly relaxing.</p>
+        <p class="muted">[ Location / short description goes here ]</p>
+        <a href="#amenities" class="btn btn--outline">Discover More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Availability ===== -->
+  <section class="section section--alt" id="availability">
+    <div class="container center">
+      <p class="eyebrow">Plan your stay</p>
+      <h2>Check Availability</h2>
+      <p class="lead">A quick look at this week. Pick your dates and reach out to reserve.</p>
+      <div class="week" id="week"></div>
+      <div class="legend">
+        <span><i class="dot dot--free"></i> Available</span>
+        <span><i class="dot dot--taken"></i> Booked / Past</span>
+      </div>
+      <p class="muted small">Draft only — calendar data is not connected yet.</p>
+      <a href="#contact" class="btn btn--gold">Book Your Stay</a>
+    </div>
+  </section>
+
+  <!-- ===== Amenities ===== -->
+  <section class="section" id="amenities">
+    <div class="container center">
+      <p class="eyebrow">Everything you need</p>
+      <h2>Amenities</h2>
+      <div class="amenities">
+        <div class="amenity reveal"><svg viewBox="0 0 24 24"><path d="M2 9a15 15 0 0 1 20 0M5.5 12.5a10 10 0 0 1 13 0M9 16a5 5 0 0 1 6 0"/><circle cx="12" cy="19.5" r="1"/></svg><span>Free WiFi</span></div>
+        <div class="amenity reveal"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg><span>Smart TV &amp; Streaming</span></div>
+        <div class="amenity reveal"><svg viewBox="0 0 24 24"><path d="M5 17h14l-1.5-6h-11L5 17zM7 17v2M17 17v2M7.5 11l1-4h7l1 4"/></svg><span>Free Parking</span></div>
+        <div class="amenity reveal"><svg viewBox="0 0 24 24"><path d="M12 2v20M4.9 6.9l14.2 10.2M19.1 6.9 4.9 17.1"/></svg><span>Air Conditioning</span></div>
+        <div class="amenity reveal"><svg viewBox="0 0 24 24"><path d="M3 20h18M4 20V10l8-6 8 6v10M9 20v-6h6v6"/></svg><span>Private Home</span></div>
+        <div class="amenity reveal"><svg viewBox="0 0 24 24"><path d="M3 11h18v3a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5v-3zM6 11V6a2 2 0 0 1 4 0"/></svg><span>Hot Shower</span></div>
+        <div class="amenity reveal"><svg viewBox="0 0 24 24"><path d="M4 3v8a3 3 0 0 0 6 0V3M7 3v18M17 3c-2 0-3 3-3 6s1 4 3 4v8"/></svg><span>Kitchen</span></div>
+        <div class="amenity reveal"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="13" r="4"/><path d="M8 6.5h.01M11 6.5h.01"/></svg><span>Washing Machine</span></div>
+        <div class="amenity reveal"><svg viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M17 6l2 2M15 8l2 2"/></svg><span>Self Check-In</span></div>
+        <div class="amenity reveal"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 12 2.5a7 7 0 0 1 7 7C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Great Location</span></div>
+      </div>
+      <p class="muted small">Amenities are placeholders — edit to match the actual home.</p>
+    </div>
+  </section>
+
+  <!-- ===== Gallery ===== -->
+  <section class="section section--alt" id="gallery">
+    <div class="container center">
+      <p class="eyebrow">Take a look inside</p>
+      <h2>Gallery</h2>
+      <!-- PHOTO: replace each .photo-slot with <img src="assets/..."> -->
+      <div class="gallery">
+        <div class="photo-slot g-wide reveal" data-label="Living room"></div>
+        <div class="photo-slot reveal" data-label="Bedroom"></div>
+        <div class="photo-slot reveal" data-label="Bedroom 2"></div>
+        <div class="photo-slot reveal" data-label="Kitchen"></div>
+        <div class="photo-slot g-wide reveal" data-label="Bathroom"></div>
+        <div class="photo-slot reveal" data-label="Exterior"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Reviews ===== -->
+  <section class="section" id="reviews">
+    <div class="container center">
+      <p class="eyebrow">Kind words</p>
+      <h2>What Our Guests Say</h2>
+      <div class="reviews">
+        <article class="review reveal">
+          <div class="stars">★★★★★</div>
+          <p>“Guest review goes here. A short quote about their stay at Ziman Home.”</p>
+          <span class="review__name">— Guest Name</span>
+        </article>
+        <article class="review reveal">
+          <div class="stars">★★★★★</div>
+          <p>“Guest review goes here. A short quote about their stay at Ziman Home.”</p>
+          <span class="review__name">— Guest Name</span>
+        </article>
+        <article class="review reveal">
+          <div class="stars">★★★★★</div>
+          <p>“Guest review goes here. A short quote about their stay at Ziman Home.”</p>
+          <span class="review__name">— Guest Name</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Location ===== -->
+  <section class="section section--alt" id="location">
+    <div class="container center">
+      <p class="eyebrow">Find us</p>
+      <h2>Where We Are</h2>
+      <p class="lead">[ Location description goes here — nearby attractions, food and landmarks. ]</p>
+      <!-- MAP: replace with a Google Maps <iframe> embed -->
+      <div class="map photo-slot" data-label="Google Map"></div>
+    </div>
+  </section>
+
+  <!-- ===== Footer / Contact ===== -->
+  <footer class="footer" id="contact">
+    <div class="container center">
+      <img src="assets/logo.webp" alt="Ziman Home logo" class="footer__logo">
+      <p class="footer__tag">Your home away from home</p>
+      <div class="footer__btns">
+        <a href="#" class="btn btn--gold">Book on Airbnb</a>
+        <a href="#" class="btn btn--outline">Chat on WhatsApp</a>
+      </div>
+      <p class="muted small">WhatsApp: [ phone number ] &nbsp;·&nbsp; Email: [ email ] &nbsp;·&nbsp; Instagram: [ @handle ]</p>
+      <div class="divider"></div>
+      <p class="footer__copy">© <span id="year"></span> Ziman Home. All rights reserved.</p>
+    </div>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
