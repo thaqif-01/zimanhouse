@@ -8,7 +8,7 @@
   <link rel="icon" href="assets/logo.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -26,25 +26,25 @@
       <a href="#reviews">Reviews</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a href="#availability" class="btn btn--gold nav__cta">Book Now</a>
+    <a href="#availability" class="btn btn--primary nav__cta">Book Now</a>
     <button class="nav__toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
   </header>
 
   <!-- ===== Hero ===== -->
-  <section class="hero" id="home">
+  <section class="hero theme-emerald" id="home">
     <!-- PHOTO: replace with a hero photo, e.g. style="background-image:url(assets/hero.jpg)" -->
     <div class="hero__bg photo-slot" data-label="Hero photo"></div>
     <div class="hero__content">
       <img src="assets/logo.webp" alt="" class="hero__emblem">
       <p class="eyebrow">Ziman Home welcomes you</p>
       <h1>Where every stay<br><em>feels like home</em></h1>
-      <a href="#availability" class="btn btn--gold">Book Now</a>
+      <a href="#availability" class="btn btn--primary">Book Now</a>
     </div>
     <a href="#experience" class="hero__scroll" aria-label="Scroll down"></a>
   </section>
 
   <!-- ===== Experience ===== -->
-  <section class="section theme-cream experience" id="experience">
+  <section class="section experience" id="experience">
     <div class="container experience__grid">
       <div class="experience__photo photo-slot reveal" data-label="Interior photo"></div>
       <div class="experience__text reveal">
@@ -64,13 +64,15 @@
       <p class="eyebrow">Plan your stay</p>
       <h2>Check Availability</h2>
       <p class="lead">A quick look at this week. Pick your dates and reach out to reserve.</p>
-      <div class="week" id="week"></div>
-      <div class="legend">
-        <span><i class="dot dot--free"></i> Available</span>
-        <span><i class="dot dot--taken"></i> Booked / Past</span>
+      <div class="availability-card theme-light">
+        <div class="week" id="week"></div>
+        <div class="legend">
+          <span><i class="dot dot--free"></i> Available</span>
+          <span><i class="dot dot--taken"></i> Booked / Past</span>
+        </div>
       </div>
       <p class="muted small">Draft only — calendar data is not connected yet.</p>
-      <a href="#contact" class="btn btn--gold">Book Your Stay</a>
+      <a href="#contact" class="btn btn--primary">Book Your Stay</a>
     </div>
   </section>
 
@@ -113,7 +115,7 @@
   </section>
 
   <!-- ===== Reviews ===== -->
-  <section class="section theme-green" id="reviews">
+  <section class="section" id="reviews">
     <div class="container center">
       <p class="eyebrow">Kind words</p>
       <h2>What Our Guests Say</h2>
@@ -138,7 +140,7 @@
   </section>
 
   <!-- ===== Location ===== -->
-  <section class="section theme-cream" id="location">
+  <section class="section theme-green" id="location">
     <div class="container center">
       <p class="eyebrow">Find us</p>
       <h2>Where We Are</h2>
@@ -149,12 +151,12 @@
   </section>
 
   <!-- ===== Footer / Contact ===== -->
-  <footer class="footer" id="contact">
+  <footer class="footer theme-emerald" id="contact">
     <div class="container center">
       <img src="assets/logo.webp" alt="Ziman Home logo" class="footer__logo">
       <p class="footer__tag">Your home away from home</p>
       <div class="footer__btns">
-        <a href="#" class="btn btn--gold">Book on Airbnb</a>
+        <a href="#" class="btn btn--primary">Book on Airbnb</a>
         <a href="#" class="btn btn--outline">Chat on WhatsApp</a>
       </div>
       <p class="muted small">WhatsApp: [ phone number ] &nbsp;·&nbsp; Email: [ email ] &nbsp;·&nbsp; Instagram: [ @handle ]</p>
