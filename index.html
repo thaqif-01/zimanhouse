@@ -2,98 +2,206 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ziman Home — Luxury Homestay</title>
-  <meta name="description" content="Ziman Home — a private, luxurious homestay for your next staycation.">
-  <link rel="icon" href="assets/logo.webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Ziman Home | Homestay at Tamarind Suites Cyberjaya</title>
+  <meta name="description" content="Stay at Ziman Home in Tamarind Suites, Cyberjaya. A comfortable homestay for families, couples and small groups of up to 6 guests. Check availability via WhatsApp.">
+  <link rel="canonical" href="https://zimanhome.nyoptech.my/">
+  <meta name="theme-color" content="#02110c">
+
+  <!-- Open Graph / social sharing.
+       og-image.jpg is a branded placeholder (1200x630). Replace it with a real
+       Ziman Home photo at the same size and path when photos are ready. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ziman Home">
+  <meta property="og:locale" content="en_MY">
+  <meta property="og:url" content="https://zimanhome.nyoptech.my/">
+  <meta property="og:title" content="Ziman Home | Homestay at Tamarind Suites Cyberjaya">
+  <meta property="og:description" content="A comfortable homestay at Tamarind Suites, Cyberjaya for families, couples and small groups of up to 6 guests. Check availability via WhatsApp.">
+  <meta property="og:image" content="https://zimanhome.nyoptech.my/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Ziman Home, homestay at Tamarind Suites, Cyberjaya">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ziman Home | Homestay at Tamarind Suites Cyberjaya">
+  <meta name="twitter:description" content="A comfortable homestay at Tamarind Suites, Cyberjaya for up to 6 guests. Check availability via WhatsApp.">
+  <meta name="twitter:image" content="https://zimanhome.nyoptech.my/assets/og-image.jpg">
+
+  <link rel="icon" href="assets/favicon.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/photos/hero-placeholder.svg">
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Structured data: confirmed details only (no ratings, prices or coordinates). -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "name": "Ziman Home",
+    "description": "A comfortable homestay at Tamarind Suites, Cyberjaya for families, couples and small groups of up to 6 guests.",
+    "url": "https://zimanhome.nyoptech.my/",
+    "image": "https://zimanhome.nyoptech.my/assets/og-image.jpg",
+    "logo": "https://zimanhome.nyoptech.my/assets/logo.webp",
+    "telephone": "+60 11-2945 9259",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Tamarind Suites",
+      "addressLocality": "Cyberjaya",
+      "addressRegion": "Selangor",
+      "addressCountry": "MY"
+    },
+    "containsPlace": {
+      "@type": "Accommodation",
+      "name": "Ziman Home",
+      "occupancy": { "@type": "QuantitativeValue", "maxValue": 6 },
+      "bed": [
+        { "@type": "BedDetails", "numberOfBeds": 1, "typeOfBed": "Queen bed" },
+        { "@type": "BedDetails", "numberOfBeds": 1, "typeOfBed": "Queen foldable bed" },
+        { "@type": "BedDetails", "numberOfBeds": 1, "typeOfBed": "Sofa bed (sleeps 2)" }
+      ]
+    }
+  }
+  </script>
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to content</a>
 
   <!-- ===== Navigation ===== -->
   <header class="nav" id="nav">
-    <a href="#home" class="nav__brand">
-      <img src="assets/logo.webp" alt="Ziman Home logo" class="nav__logo">
+    <a href="#home" class="nav__brand" aria-label="Ziman Home, back to top">
+      <img src="assets/logo-mark.webp" alt="" class="nav__logo" width="44" height="44">
       <span>Ziman Home</span>
     </a>
-    <nav class="nav__links" id="navLinks">
+    <nav class="nav__links" id="navLinks" aria-label="Main">
       <a href="#home">Home</a>
       <a href="#amenities">Amenities</a>
       <a href="#gallery">Gallery</a>
-      <a href="#reviews">Reviews</a>
+      <a href="#location">Location</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a href="#availability" class="btn btn--primary nav__cta">Book Now</a>
-    <button class="nav__toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <a href="https://wa.me/601129459259?text=Hi%20Ziman%20Home%2C%20I%20would%20like%20to%20check%20availability%20for%20a%20stay%20at%20Tamarind%20Suites%20Cyberjaya." class="btn btn--primary nav__cta" target="_blank" rel="noopener">WhatsApp Us</a>
+    <button class="nav__toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
   </header>
+
+  <main id="main">
 
   <!-- ===== Hero ===== -->
   <section class="hero theme-emerald" id="home">
-    <!-- PHOTO: replace with a hero photo, e.g. style="background-image:url(assets/hero.jpg)" -->
-    <div class="hero__bg photo-slot" data-label="Hero photo"></div>
+    <!-- PHOTO (hero): swap the placeholder for the main property photo, e.g.
+         <source srcset="assets/photos/hero.avif" type="image/avif">
+         <source srcset="assets/photos/hero.webp" type="image/webp">
+         <img src="assets/photos/hero.jpg" ...>  — keep it eager-loaded (no loading="lazy"). -->
+    <picture class="hero__media">
+      <img src="assets/photos/hero-placeholder.svg" alt="Ziman Home at Tamarind Suites, Cyberjaya" width="1920" height="1080" fetchpriority="high" decoding="async">
+    </picture>
     <div class="hero__content">
-      <img src="assets/logo.webp" alt="" class="hero__emblem">
-      <p class="eyebrow">Ziman Home welcomes you</p>
+      <img src="assets/logo-mark.webp" alt="" class="hero__emblem" width="128" height="128">
+      <p class="eyebrow">Tamarind Suites · Cyberjaya</p>
       <h1>Where every stay<br><em>feels like home</em></h1>
-      <a href="#availability" class="btn btn--primary">Book Now</a>
+      <p class="hero__lead">A comfortable private stay at Tamarind Suites, Cyberjaya, designed for families, couples and small groups of up to 6 guests.</p>
+      <div class="hero__ctas">
+        <a href="https://wa.me/601129459259?text=Hi%20Ziman%20Home%2C%20I%20would%20like%20to%20check%20availability%20for%20a%20stay%20at%20Tamarind%20Suites%20Cyberjaya." class="btn btn--primary btn--icon" target="_blank" rel="noopener">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 20l1.2-3.6A8.5 8.5 0 1 1 8 19.1z"/><path d="M9.2 8.6c.2-.5.7-.6 1-.2l.8 1.2c.2.3.2.7-.1 1l-.4.4c.5 1 1.3 1.8 2.3 2.3l.4-.4c.3-.3.7-.3 1-.1l1.2.8c.4.3.3.8-.2 1-.9.5-2 .5-3-.1a8 8 0 0 1-3-3c-.5-1-.5-2.1 0-2.9z"/></svg>
+          Check Availability on WhatsApp
+        </a>
+        <a href="#contact" class="btn btn--outline">Booking Options</a>
+      </div>
     </div>
-    <a href="#experience" class="hero__scroll" aria-label="Scroll down"></a>
+    <a href="#facts" class="hero__scroll" aria-label="Scroll to property details"></a>
+  </section>
+
+  <!-- ===== Quick facts ===== -->
+  <section class="facts" id="facts" aria-label="Property details">
+    <div class="container">
+      <ul class="facts__list">
+        <li class="fact">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16.5 14.1c2.6.4 4.5 2.8 4.5 5.9"/></svg>
+          <span>Up to 6 Guests</span>
+        </li>
+        <li class="fact">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 19V6M3 15h18v4M21 15v-3a3 3 0 0 0-3-3h-7v6"/><circle cx="7" cy="11.5" r="2"/></svg>
+          <span>1 Queen Bed</span>
+        </li>
+        <li class="fact">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 16h20M4 16v4M20 16v4M4 16v-5h7v5M11 13h9v3"/><path d="M8 7l3 3 3-3"/></svg>
+          <span>1 Queen Foldable Bed</span>
+        </li>
+        <li class="fact">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 11V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"/><path d="M2 13a2 2 0 0 1 4 0v2h12v-2a2 2 0 0 1 4 0v5H2z"/><path d="M5 18v2M19 18v2"/></svg>
+          <span>Sofa Bed for 2</span>
+        </li>
+        <li class="fact">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 12 2.5a7 7 0 0 1 7 7C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          <span>Tamarind Suites, Cyberjaya</span>
+        </li>
+      </ul>
+    </div>
   </section>
 
   <!-- ===== Experience ===== -->
   <section class="section experience" id="experience">
     <div class="container experience__grid">
-      <div class="experience__photo photo-slot reveal" data-label="Interior photo"></div>
+      <!-- PHOTO (general interior): replace src with a real interior photo. -->
+      <figure class="photo experience__photo reveal">
+        <picture>
+          <img src="assets/photos/placeholder.svg" alt="Interior of Ziman Home" width="800" height="1000" loading="lazy" decoding="async">
+        </picture>
+      </figure>
       <div class="experience__text reveal">
         <p class="eyebrow">The Ziman Home Experience</p>
-        <h2>Quiet luxury,<br>made for unwinding</h2>
+        <h2>Calm comfort,<br>made for unwinding</h2>
         <div class="divider"></div>
-        <p>Slow mornings, warm lighting and thoughtful comfort in every corner. Ziman Home is a private retreat for families and couples who want a stay that feels special — elegant, calm and effortlessly relaxing.</p>
-        <p class="muted">[ Location / short description goes here ]</p>
+        <p>Ziman Home is a private homestay at Tamarind Suites, Cyberjaya — a calm, comfortable place for families, couples and small groups who want a stay that feels easy and welcoming.</p>
+        <p>With a queen bed, a queen foldable bed and a sofa bed, the home sleeps up to 6 guests.</p>
         <a href="#amenities" class="btn btn--outline">Discover More</a>
       </div>
     </div>
   </section>
 
   <!-- ===== Availability ===== -->
+  <!-- Live availability is not connected yet. The calendar below renders as a
+       neutral preview (see AVAILABILITY_LIVE in script.js). -->
   <section class="section theme-green" id="availability">
     <div class="container center">
       <p class="eyebrow">Plan your stay</p>
       <h2>Check Availability</h2>
-      <p class="lead">A quick look at this week. Pick your dates and reach out to reserve.</p>
-      <div class="availability-card theme-light">
-        <div class="week" id="week"></div>
-        <div class="legend">
+      <p class="lead">Our online availability calendar is coming soon. In the meantime, message us on WhatsApp and we'll confirm your dates.</p>
+      <div class="availability-card theme-light is-preview" id="availabilityCard">
+        <div class="week" id="week" aria-hidden="true"></div>
+        <p class="availability-card__soon">Availability calendar coming soon</p>
+        <div class="legend" id="legend" hidden>
           <span><i class="dot dot--free"></i> Available</span>
           <span><i class="dot dot--taken"></i> Booked / Past</span>
         </div>
       </div>
-      <p class="muted small">Draft only — calendar data is not connected yet.</p>
-      <a href="#contact" class="btn btn--primary">Book Your Stay</a>
+      <a href="https://wa.me/601129459259?text=Hi%20Ziman%20Home%2C%20I%20would%20like%20to%20check%20availability%20for%20a%20stay%20at%20Tamarind%20Suites%20Cyberjaya." class="btn btn--primary btn--icon availability__cta" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 20l1.2-3.6A8.5 8.5 0 1 1 8 19.1z"/><path d="M9.2 8.6c.2-.5.7-.6 1-.2l.8 1.2c.2.3.2.7-.1 1l-.4.4c.5 1 1.3 1.8 2.3 2.3l.4-.4c.3-.3.7-.3 1-.1l1.2.8c.4.3.3.8-.2 1-.9.5-2 .5-3-.1a8 8 0 0 1-3-3c-.5-1-.5-2.1 0-2.9z"/></svg>
+        Check Availability on WhatsApp
+      </a>
     </div>
   </section>
 
   <!-- ===== Amenities ===== -->
+  <!-- TODO: Confirm each amenity matches the unit before launch; remove any that don't apply. -->
   <section class="section" id="amenities">
     <div class="container center">
       <p class="eyebrow">Everything you need</p>
       <h2>Amenities</h2>
-      <div class="amenities">
-        <div class="amenity reveal"><svg viewBox="0 0 24 24"><path d="M2 9a15 15 0 0 1 20 0M5.5 12.5a10 10 0 0 1 13 0M9 16a5 5 0 0 1 6 0"/><circle cx="12" cy="19.5" r="1"/></svg><span>Free WiFi</span></div>
-        <div class="amenity reveal"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg><span>Smart TV &amp; Streaming</span></div>
-        <div class="amenity reveal"><svg viewBox="0 0 24 24"><path d="M5 17h14l-1.5-6h-11L5 17zM7 17v2M17 17v2M7.5 11l1-4h7l1 4"/></svg><span>Free Parking</span></div>
-        <div class="amenity reveal"><svg viewBox="0 0 24 24"><path d="M12 2v20M4.9 6.9l14.2 10.2M19.1 6.9 4.9 17.1"/></svg><span>Air Conditioning</span></div>
-        <div class="amenity reveal"><svg viewBox="0 0 24 24"><path d="M3 20h18M4 20V10l8-6 8 6v10M9 20v-6h6v6"/></svg><span>Private Home</span></div>
-        <div class="amenity reveal"><svg viewBox="0 0 24 24"><path d="M3 11h18v3a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5v-3zM6 11V6a2 2 0 0 1 4 0"/></svg><span>Hot Shower</span></div>
-        <div class="amenity reveal"><svg viewBox="0 0 24 24"><path d="M4 3v8a3 3 0 0 0 6 0V3M7 3v18M17 3c-2 0-3 3-3 6s1 4 3 4v8"/></svg><span>Kitchen</span></div>
-        <div class="amenity reveal"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="13" r="4"/><path d="M8 6.5h.01M11 6.5h.01"/></svg><span>Washing Machine</span></div>
-        <div class="amenity reveal"><svg viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M17 6l2 2M15 8l2 2"/></svg><span>Self Check-In</span></div>
-        <div class="amenity reveal"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 12 2.5a7 7 0 0 1 7 7C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Great Location</span></div>
-      </div>
-      <p class="muted small">Amenities are placeholders — edit to match the actual home.</p>
+      <ul class="amenities">
+        <li class="amenity reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 9a15 15 0 0 1 20 0M5.5 12.5a10 10 0 0 1 13 0M9 16a5 5 0 0 1 6 0"/><circle cx="12" cy="19.5" r="1"/></svg><span>Free WiFi</span></li>
+        <li class="amenity reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg><span>Smart TV &amp; Streaming</span></li>
+        <li class="amenity reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 17h14l-1.5-6h-11L5 17zM7 17v2M17 17v2M7.5 11l1-4h7l1 4"/></svg><span>Free Parking</span></li>
+        <li class="amenity reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2v20M4.9 6.9l14.2 10.2M19.1 6.9 4.9 17.1"/></svg><span>Air Conditioning</span></li>
+        <li class="amenity reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 20h18M4 20V10l8-6 8 6v10M9 20v-6h6v6"/></svg><span>Private Home</span></li>
+        <li class="amenity reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 11h18v3a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5v-3zM6 11V6a2 2 0 0 1 4 0"/></svg><span>Hot Shower</span></li>
+        <li class="amenity reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 3v8a3 3 0 0 0 6 0V3M7 3v18M17 3c-2 0-3 3-3 6s1 4 3 4v8"/></svg><span>Kitchen</span></li>
+        <li class="amenity reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="13" r="4"/><path d="M8 6.5h.01M11 6.5h.01"/></svg><span>Washing Machine</span></li>
+        <li class="amenity reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M17 6l2 2M15 8l2 2"/></svg><span>Self Check-In</span></li>
+        <li class="amenity reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 12 2.5a7 7 0 0 1 7 7C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Great Location</span></li>
+      </ul>
     </div>
   </section>
 
@@ -102,39 +210,50 @@
     <div class="container center">
       <p class="eyebrow">Take a look inside</p>
       <h2>Gallery</h2>
-      <!-- PHOTO: replace each .photo-slot with <img src="assets/..."> -->
+      <!-- PHOTOS: each <figure> is one slot. To add a real photo, put it in
+           assets/photos/ (e.g. living-room.jpg) and change the <img> src.
+           Optional: add <source srcset="assets/photos/living-room.avif" type="image/avif">
+           and a .webp <source> above the <img> inside <picture>. -->
       <div class="gallery">
-        <div class="photo-slot g-wide reveal" data-label="Living room"></div>
-        <div class="photo-slot reveal" data-label="Bedroom"></div>
-        <div class="photo-slot reveal" data-label="Bedroom 2"></div>
-        <div class="photo-slot reveal" data-label="Kitchen"></div>
-        <div class="photo-slot g-wide reveal" data-label="Bathroom"></div>
-        <div class="photo-slot reveal" data-label="Exterior"></div>
+        <figure class="photo g-wide reveal">
+          <picture><img src="assets/photos/placeholder.svg" alt="Living room at Ziman Home" width="1200" height="800" loading="lazy" decoding="async"></picture>
+          <figcaption>Living Room</figcaption>
+        </figure>
+        <figure class="photo reveal">
+          <picture><img src="assets/photos/placeholder.svg" alt="Queen bedroom at Ziman Home" width="800" height="800" loading="lazy" decoding="async"></picture>
+          <figcaption>Queen Bedroom</figcaption>
+        </figure>
+        <figure class="photo reveal">
+          <picture><img src="assets/photos/placeholder.svg" alt="Additional sleeping area with queen foldable bed and sofa bed" width="800" height="800" loading="lazy" decoding="async"></picture>
+          <figcaption>Sleeping Area</figcaption>
+        </figure>
+        <figure class="photo reveal">
+          <picture><img src="assets/photos/placeholder.svg" alt="Kitchen at Ziman Home" width="800" height="800" loading="lazy" decoding="async"></picture>
+          <figcaption>Kitchen</figcaption>
+        </figure>
+        <figure class="photo g-wide reveal">
+          <picture><img src="assets/photos/placeholder.svg" alt="Bathroom at Ziman Home" width="1200" height="800" loading="lazy" decoding="async"></picture>
+          <figcaption>Bathroom</figcaption>
+        </figure>
+        <figure class="photo reveal">
+          <picture><img src="assets/photos/placeholder.svg" alt="Tamarind Suites building exterior, Cyberjaya" width="800" height="800" loading="lazy" decoding="async"></picture>
+          <figcaption>Exterior</figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
   <!-- ===== Reviews ===== -->
-  <section class="section" id="reviews">
+  <!-- No confirmed guest reviews yet. When Airbnb / Booking.com reviews exist,
+       replace the card below with real review cards (quote, guest first name,
+       platform). Do not add ratings or quotes that aren't from real stays. -->
+  <section class="section section--compact" id="reviews">
     <div class="container center">
-      <p class="eyebrow">Kind words</p>
-      <h2>What Our Guests Say</h2>
-      <div class="reviews">
-        <article class="review reveal">
-          <div class="stars">★★★★★</div>
-          <p>“Guest review goes here. A short quote about their stay at Ziman Home.”</p>
-          <span class="review__name">— Guest Name</span>
-        </article>
-        <article class="review reveal">
-          <div class="stars">★★★★★</div>
-          <p>“Guest review goes here. A short quote about their stay at Ziman Home.”</p>
-          <span class="review__name">— Guest Name</span>
-        </article>
-        <article class="review reveal">
-          <div class="stars">★★★★★</div>
-          <p>“Guest review goes here. A short quote about their stay at Ziman Home.”</p>
-          <span class="review__name">— Guest Name</span>
-        </article>
+      <p class="eyebrow">Guest reviews</p>
+      <h2>Welcoming Our First Guests</h2>
+      <div class="review review--soon reveal">
+        <p>Ziman Home is getting ready for its first stays. Reviews from our guests will be shared here soon.</p>
+        <a href="https://wa.me/601129459259?text=Hi%20Ziman%20Home%2C%20I%20would%20like%20to%20check%20availability%20for%20a%20stay%20at%20Tamarind%20Suites%20Cyberjaya." class="text-link" target="_blank" rel="noopener">Be one of our first guests →</a>
       </div>
     </div>
   </section>
@@ -144,27 +263,62 @@
     <div class="container center">
       <p class="eyebrow">Find us</p>
       <h2>Where We Are</h2>
-      <p class="lead">[ Location description goes here — nearby attractions, food and landmarks. ]</p>
-      <!-- MAP: replace with a Google Maps <iframe> embed -->
-      <div class="map photo-slot" data-label="Google Map"></div>
+      <p class="lead">Tamarind Suites, Cyberjaya, Selangor</p>
+      <div class="location">
+        <div class="map">
+          <iframe src="https://www.google.com/maps?q=Tamarind%20Suites%2C%20Cyberjaya%2C%20Selangor&amp;z=16&amp;output=embed" title="Map showing Tamarind Suites, Cyberjaya" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+        <div class="nearby">
+          <h3>Nearby</h3>
+          <ul>
+            <li>Tamarind Square</li>
+            <li>Multimedia University (MMU)</li>
+            <li>Putrajaya</li>
+            <li>Restaurants &amp; cafés</li>
+            <li>Convenience stores &amp; essential services</li>
+          </ul>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Tamarind%20Suites%2C%20Cyberjaya" class="text-link" target="_blank" rel="noopener">Open in Google Maps ↗</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ===== Footer / Contact ===== -->
+  </main>
+
+  <!-- ===== Footer / Booking ===== -->
   <footer class="footer theme-emerald" id="contact">
     <div class="container center">
-      <img src="assets/logo.webp" alt="Ziman Home logo" class="footer__logo">
+      <img src="assets/logo.webp" alt="Ziman Home homestay logo" class="footer__logo" width="168" height="168" loading="lazy">
       <p class="footer__tag">Your home away from home</p>
+      <h2 class="footer__title">Book your stay</h2>
+      <a href="https://wa.me/601129459259?text=Hi%20Ziman%20Home%2C%20I%20would%20like%20to%20check%20availability%20for%20a%20stay%20at%20Tamarind%20Suites%20Cyberjaya." class="btn btn--primary btn--icon btn--lg" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 20l1.2-3.6A8.5 8.5 0 1 1 8 19.1z"/><path d="M9.2 8.6c.2-.5.7-.6 1-.2l.8 1.2c.2.3.2.7-.1 1l-.4.4c.5 1 1.3 1.8 2.3 2.3l.4-.4c.3-.3.7-.3 1-.1l1.2.8c.4.3.3.8-.2 1-.9.5-2 .5-3-.1a8 8 0 0 1-3-3c-.5-1-.5-2.1 0-2.9z"/></svg>
+        Check Availability on WhatsApp
+      </a>
+      <!-- Platform buttons: a link without href shows as "Coming soon" and can't be
+           clicked. To go live, add href="..." target="_blank" rel="noopener" —
+           the "Coming soon" label hides automatically. -->
       <div class="footer__btns">
-        <a href="#" class="btn btn--primary">Book on Airbnb</a>
-        <a href="#" class="btn btn--outline">Chat on WhatsApp</a>
+        <!-- TODO: Replace with Ziman Home Airbnb listing URL (add href="https://www.airbnb.com/rooms/...") -->
+        <a class="btn btn--outline btn--platform">Airbnb <span class="btn__soon">Coming soon</span></a>
+        <!-- TODO: Replace with Ziman Home Booking.com listing URL (add href="https://www.booking.com/hotel/my/...") -->
+        <a class="btn btn--outline btn--platform">Booking.com <span class="btn__soon">Coming soon</span></a>
       </div>
-      <p class="muted small">WhatsApp: [ phone number ] &nbsp;·&nbsp; Email: [ email ] &nbsp;·&nbsp; Instagram: [ @handle ]</p>
+      <ul class="footer__contact">
+        <li>WhatsApp: <a href="https://wa.me/601129459259">+60 11-2945 9259</a></li>
+        <li>Tamarind Suites, Cyberjaya, Selangor</li>
+      </ul>
       <div class="divider"></div>
       <p class="footer__copy">© <span id="year"></span> Ziman Home. All rights reserved.</p>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- Floating WhatsApp button (hidden while the hero or footer booking area is on screen) -->
+  <a href="https://wa.me/601129459259?text=Hi%20Ziman%20Home%2C%20I%20would%20like%20to%20check%20availability%20for%20a%20stay%20at%20Tamarind%20Suites%20Cyberjaya." class="wa-float is-hidden" id="waFloat" target="_blank" rel="noopener">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 20l1.2-3.6A8.5 8.5 0 1 1 8 19.1z"/><path d="M9.2 8.6c.2-.5.7-.6 1-.2l.8 1.2c.2.3.2.7-.1 1l-.4.4c.5 1 1.3 1.8 2.3 2.3l.4-.4c.3-.3.7-.3 1-.1l1.2.8c.4.3.3.8-.2 1-.9.5-2 .5-3-.1a8 8 0 0 1-3-3c-.5-1-.5-2.1 0-2.9z"/></svg>
+    <span class="wa-float__label">WhatsApp Us</span>
+  </a>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
