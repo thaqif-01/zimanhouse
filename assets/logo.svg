@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <title>Ziman Home</title>
+  <rect width="512" height="512" rx="96" fill="#1a422f"/>
+  <g transform="translate(137 125) scale(.7)"><g fill="#f3ebd6" stroke="#f3ebd6" stroke-width="10" stroke-linejoin="round"><polygon points="171,5 4,157 338,157"/><polygon points="5,209 221,209 13,366 5,366"/><polygon points="328,206 335,206 335,370 115,370"/></g></g>
+</svg>
