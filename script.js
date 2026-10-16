@@ -22,30 +22,69 @@ document.addEventListener("keydown", e => {
   }
 });
 
-// Availability calendar.
-// Not connected to real booking data yet, so it renders as a neutral preview.
-// To go live: set AVAILABILITY_LIVE = true and fill bookedDates (e.g. from an iCal feed).
-const AVAILABILITY_LIVE = false;
-const bookedDates = []; // e.g. ["2026-10-03", "2026-10-04"]
-const week = document.getElementById("week");
-const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-for (let i = 0; i < 7; i++) {
-  const d = new Date();
-  d.setDate(d.getDate() + i);
-  const iso = d.toLocaleDateString("en-CA");
-  const state = !AVAILABILITY_LIVE ? "" : bookedDates.includes(iso) ? "taken" : "free";
-  week.insertAdjacentHTML("beforeend", `
-    <div class="day${state ? ` day--${state}` : ""}">
-      <span class="day__name">${dayNames[d.getDay()]}</span>
-      <span class="day__num">${d.getDate()}</span>
-      ${state ? `<i class="dot dot--${state}"></i>` : ""}
-    </div>`);
+// Availability calendar, synced from Airbnb via /api/availability (cached, so a few minutes of delay).
+// If the feed can't be loaded, the card falls back to a "check via WhatsApp" message.
+const card = document.getElementById("availabilityCard");
+const calGrid = document.getElementById("calGrid");
+const calTitle = document.getElementById("calTitle");
+const calPrev = document.getElementById("calPrev");
+const calNext = document.getElementById("calNext");
+const MAX_MONTHS_AHEAD = 11;
+const pad = n => String(n).padStart(2, "0");
+const todayIso = new Date().toLocaleDateString("en-CA");
+let booked = new Set();
+let monthOffset = 0;
+
+function renderMonth() {
+  const base = new Date();
+  const first = new Date(base.getFullYear(), base.getMonth() + monthOffset, 1);
+  const y = first.getFullYear();
+  const m = first.getMonth();
+  calTitle.textContent = first.toLocaleDateString("en-GB", { month: "long", year: "numeric" });
+  calPrev.disabled = monthOffset === 0;
+  calNext.disabled = monthOffset === MAX_MONTHS_AHEAD;
+  const days = new Date(y, m + 1, 0).getDate();
+  let html = "<span></span>".repeat(first.getDay());
+  for (let d = 1; d <= days; d++) {
+    const iso = `${y}-${pad(m + 1)}-${pad(d)}`;
+    const state = iso < todayIso || booked.has(iso) ? "taken" : "free";
+    html += `<div class="cal__day cal__day--${state}"><span>${d}</span></div>`;
+  }
+  calGrid.innerHTML = html;
 }
-if (AVAILABILITY_LIVE) {
-  document.getElementById("availabilityCard").classList.remove("is-preview");
-  week.removeAttribute("aria-hidden");
-  document.getElementById("legend").hidden = false;
-}
+
+calPrev.addEventListener("click", () => { monthOffset--; renderMonth(); });
+calNext.addEventListener("click", () => { monthOffset++; renderMonth(); });
+
+fetch("/api/availability")
+  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then(data => {
+    booked = new Set(data.booked);
+    card.classList.remove("is-preview");
+    document.getElementById("legend").hidden = false;
+    document.getElementById("calNote").hidden = false;
+    renderMonth();
+  })
+  .catch(() => {
+    document.getElementById("calStatus").textContent = "Live calendar unavailable. Message us on WhatsApp to check your dates.";
+    renderMonth();
+  });
+
+// Guest reviews: shown from reviews.json (copied from real Airbnb reviews). Empty list keeps the placeholder.
+fetch("reviews.json")
+  .then(r => r.ok ? r.json() : [])
+  .then(list => {
+    if (!Array.isArray(list) || !list.length) return;
+    const section = document.getElementById("reviews");
+    const esc = t => String(t).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+    section.querySelector("h2").textContent = "What Our Guests Say";
+    section.querySelector(".review--soon").outerHTML = `<div class="reviews">${list.map(r => `
+      <blockquote class="review">
+        <p>${esc(r.quote)}</p>
+        <footer>${esc(r.name)}${r.date ? ` &middot; ${esc(r.date)}` : ""}${r.source ? ` &middot; ${esc(r.source)}` : ""}</footer>
+      </blockquote>`).join("")}</div>`;
+  })
+  .catch(() => {});
 
 // Reveal sections on scroll
 const io = new IntersectionObserver(entries => {
