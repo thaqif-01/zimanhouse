@@ -22,7 +22,7 @@ document.addEventListener("keydown", e => {
   }
 });
 
-// Availability calendar, synced from Airbnb via /api/availability (cached, so a few minutes of delay).
+// Availability calendar, synced from Airbnb and Booking.com via /api/availability (cached, so a few minutes of delay).
 // If the feed can't be loaded, the card falls back to a "check via WhatsApp" message.
 const card = document.getElementById("availabilityCard");
 const calGrid = document.getElementById("calGrid");

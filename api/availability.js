@@ -1,7 +1,10 @@
-// Vercel serverless function: reads the Airbnb calendar (iCal) feed and returns booked nights.
-// Set AIRBNB_ICAL_URL in Vercel > Project > Settings > Environment Variables (kept out of the repo
-// because the feed URL is private). Responses are cached at the edge, so the calendar is
+// Vercel serverless function: reads the Airbnb and Booking.com calendar (iCal) feeds and returns
+// the nights booked on either. Set AIRBNB_ICAL_URL and BOOKING_ICAL_URL in Vercel > Project >
+// Settings > Environment Variables (kept out of the repo because the feed URLs are private).
+// A feed with no URL set is skipped. Responses are cached at the edge, so the calendar is
 // near-real-time (a few minutes of delay).
+
+const FEED_ENV_VARS = ["AIRBNB_ICAL_URL", "BOOKING_ICAL_URL"];
 
 const toIso = (y, m, d) => `${y}-${String(m).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
 
@@ -30,16 +33,23 @@ function parseBookedNights(ics) {
   return [...nights].sort();
 }
 
+async function fetchFeed(url) {
+  const r = await fetch(url, { signal: AbortSignal.timeout(8000) });
+  if (!r.ok) throw new Error(`Upstream ${r.status}`);
+  return r.text();
+}
+
 module.exports = async (req, res) => {
-  const url = process.env.AIRBNB_ICAL_URL;
-  if (!url) {
+  const urls = FEED_ENV_VARS.map(name => process.env[name]).filter(Boolean);
+  if (!urls.length) {
     res.status(503).json({ error: "Calendar not configured" });
     return;
   }
   try {
-    const r = await fetch(url, { signal: AbortSignal.timeout(8000) });
-    if (!r.ok) throw new Error(`Upstream ${r.status}`);
-    const booked = parseBookedNights(await r.text());
+    // If any feed fails we return an error rather than a partial answer: a missing feed would
+    // show its booked dates as free and invite a double booking.
+    const feeds = await Promise.all(urls.map(fetchFeed));
+    const booked = [...new Set(feeds.flatMap(parseBookedNights))].sort();
     res.setHeader("Cache-Control", "public, s-maxage=600, stale-while-revalidate=3600");
     res.status(200).json({ booked, updated: new Date().toISOString() });
   } catch (err) {
