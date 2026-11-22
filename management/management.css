@@ -74,6 +74,17 @@
   .property__stage:hover .property__main { transform: scale(1.04); }
 }
 
+/* Guest notes under the managed property: quiet, no cards */
+.guest-notes { margin-top: 56px; text-align: center; }
+.guest-notes__title { margin-bottom: 28px; font-size: .72rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--accent); }
+.guest-notes__list { display: grid; grid-template-columns: repeat(3, 1fr); text-align: left; border-block: 1px solid var(--line); }
+.guest-notes__list li { padding: 28px 28px 26px; }
+.guest-notes__list li + li { border-left: 1px solid var(--line); }
+.guest-notes blockquote { margin-bottom: 14px; font-family: var(--serif); font-size: 1.25rem; font-style: italic; line-height: 1.45; color: var(--heading); }
+.guest-notes__list p { font-size: .82rem; color: var(--muted); }
+.guest-notes__stars { margin-right: 8px; font-size: .78rem; letter-spacing: .14em; color: var(--accent); }
+.guest-notes .text-link { margin-top: 22px; }
+
 /* Footer extras */
 .footer__swap { margin: 22px 0 0; }
 
@@ -93,8 +104,8 @@
 
 .reveal { transform: none; translate: 0 24px; }
 .reveal.in { transform: none; translate: none; }
-.pkg, .term, .col, .callout, .steps li, .property,
-.pkg.reveal, .term.reveal, .col.reveal, .callout.reveal, .steps li.reveal, .property.reveal {
+.pkg, .term, .col, .callout, .steps li, .property, .guest-notes,
+.pkg.reveal, .term.reveal, .col.reveal, .callout.reveal, .steps li.reveal, .property.reveal, .guest-notes.reveal {
   transition: opacity .7s var(--ease), translate .7s var(--ease), transform .4s var(--ease), box-shadow .4s var(--ease), border-color .35s var(--ease);
   transition-delay: var(--reveal-delay, 0ms), var(--reveal-delay, 0ms), 0s, 0s, 0s;
 }
@@ -129,6 +140,9 @@
 @media (max-width: 960px) {
   .cols { grid-template-columns: 1fr; }
   .property { grid-template-columns: 1fr; gap: 28px; }
+  .guest-notes__list { grid-template-columns: 1fr; }
+  .guest-notes__list li { padding: 22px 4px; }
+  .guest-notes__list li + li { border-left: 0; border-top: 1px solid var(--line); }
   .property__info { padding: 0 8px 8px; }
   .hero--page { padding-top: calc(var(--nav-h) + 64px); padding-bottom: 80px; }
 }
