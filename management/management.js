@@ -61,52 +61,6 @@ new IntersectionObserver(([e]) => {
   if (e.isIntersecting) sectionLinks.forEach(a => a.classList.remove("is-active"));
 }, { rootMargin: "-35% 0px -60% 0px" }).observe(document.getElementById("home"));
 
-// Property galleries: thumbnails, arrows, keyboard arrows and swipe. Works for every [data-gallery].
-document.querySelectorAll("[data-gallery]").forEach(gallery => {
-  const stage = gallery.querySelector(".property__stage");
-  const main = gallery.querySelector(".property__main");
-  const current = gallery.querySelector("[data-current]");
-  const strip = gallery.querySelector(".property__thumbs");
-  const thumbs = [...strip.querySelectorAll(".property__thumb")];
-  let index = 0;
-
-  const show = i => {
-    index = (i + thumbs.length) % thumbs.length;
-    const thumb = thumbs[index];
-    thumbs.forEach(t => t.removeAttribute("aria-current"));
-    thumb.setAttribute("aria-current", "true");
-    // Scroll only the thumbnail strip, never the page.
-    strip.scrollTo({ left: thumb.offsetLeft - strip.offsetLeft - (strip.clientWidth - thumb.clientWidth) / 2, behavior: "smooth" });
-    current.textContent = index + 1;
-    if (main.getAttribute("src") === thumb.dataset.full) return;
-    main.classList.add("is-swapping");
-    const next = new Image();
-    next.onload = next.onerror = () => {
-      main.src = thumb.dataset.full;
-      main.alt = thumb.dataset.alt;
-      main.classList.remove("is-swapping");
-    };
-    next.src = thumb.dataset.full;
-  };
-
-  thumbs.forEach((t, i) => t.addEventListener("click", () => show(i)));
-  gallery.querySelectorAll("[data-dir]").forEach(b => b.addEventListener("click", () => show(index + Number(b.dataset.dir))));
-  gallery.addEventListener("keydown", e => {
-    if (e.key === "ArrowLeft") { e.preventDefault(); show(index - 1); }
-    if (e.key === "ArrowRight") { e.preventDefault(); show(index + 1); }
-  });
-
-  let startX = null;
-  stage.addEventListener("pointerdown", e => { if (e.pointerType !== "mouse") startX = e.clientX; });
-  stage.addEventListener("pointerup", e => {
-    if (startX === null) return;
-    const dx = e.clientX - startX;
-    startX = null;
-    if (Math.abs(dx) > 40) show(index + (dx < 0 ? 1 : -1));
-  });
-  stage.addEventListener("pointercancel", () => { startX = null; });
-});
-
 // Floating WhatsApp button: hide while the hero or footer CTA is visible
 const waFloat = document.getElementById("waFloat");
 const ctaZones = new Map();
