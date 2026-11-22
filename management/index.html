@@ -30,6 +30,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="/assets/photos/hero-placeholder.svg">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/management/management.css">
 
@@ -74,6 +75,9 @@
 
   <!-- ===== Hero ===== -->
   <section class="hero hero--page theme-emerald" id="home">
+    <picture class="hero__media">
+      <img src="/assets/photos/hero-placeholder.svg" alt="" width="1920" height="1080" fetchpriority="high" decoding="async">
+    </picture>
     <div class="hero__content">
       <img src="/assets/logo.svg" alt="" class="hero__emblem" width="112" height="112">
       <p class="eyebrow">Ziman Home · Property Management · Cyberjaya</p>
