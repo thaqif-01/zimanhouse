@@ -70,22 +70,6 @@ fetch("/api/availability")
     renderMonth();
   });
 
-// Guest reviews: shown from reviews.json (copied from real Airbnb reviews). Empty list keeps the placeholder.
-fetch("reviews.json")
-  .then(r => r.ok ? r.json() : [])
-  .then(list => {
-    if (!Array.isArray(list) || !list.length) return;
-    const section = document.getElementById("reviews");
-    const esc = t => String(t).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-    section.querySelector("h2").textContent = "What Our Guests Say";
-    section.querySelector(".review--soon").outerHTML = `<div class="reviews">${list.map(r => `
-      <blockquote class="review">
-        <p>${esc(r.quote)}</p>
-        <footer>${esc(r.name)}${r.date ? ` &middot; ${esc(r.date)}` : ""}${r.source ? ` &middot; ${esc(r.source)}` : ""}</footer>
-      </blockquote>`).join("")}</div>`;
-  })
-  .catch(() => {});
-
 // Reveal sections on scroll
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => {

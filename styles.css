@@ -238,6 +238,8 @@ h1 em, h2 em { font-style: italic; font-weight: 300; }
 .review::before { content: "“"; position: absolute; top: -6px; left: 24px; font-family: var(--serif); font-size: 5rem; color: var(--accent); opacity: .18; line-height: 1; }
 .review p { font-family: var(--serif); font-size: 1.3rem; font-style: italic; line-height: 1.55; color: var(--text); margin-bottom: 20px; }
 .review--soon { max-width: 640px; margin: 36px auto 0; }
+.review .review__stars { margin-bottom: 14px; font-family: var(--sans); font-size: .95rem; font-style: normal; letter-spacing: .18em; color: var(--accent); }
+.reviews__more { margin-top: 32px; }
 
 /* =========================================================
    Location
